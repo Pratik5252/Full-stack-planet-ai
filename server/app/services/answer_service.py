@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 import os, shutil
 import tempfile
 import nest_asyncio
+from ..config import GEMINI_API_KEY
 
 nest_asyncio.apply()
 
@@ -24,7 +25,7 @@ async def generate_answer(temp_pdf_path, question):
         temp_dir = tempfile.mkdtemp()
 
         llamaparse_api_key = os.getenv("LLAMA_CLOUD_API_KEY")
-        api_key = os.getenv("GEMINI_API_KEY")
+        api_key = GEMINI_API_KEY
 
         llm = Gemini(model="models/gemini-1.5-flash", api_key=api_key)
         embed_model = GeminiEmbedding(
