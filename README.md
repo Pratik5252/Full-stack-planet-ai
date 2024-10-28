@@ -67,8 +67,7 @@ Before you begin, ensure you have the following installed:
 
 ### Installation
 
-    ```bash
-        cd client
-        npm install or yarn install
-        npm run dev
-    ```
+```bash
+    cd client
+    npm install or yarn install
+```
