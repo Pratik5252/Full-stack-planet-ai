@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains the backend for the Skillsphere application, built using FastAPI. The server is responsible for handling API requests, processing uploaded PDFs and generating response to the questions based on that PDF.
+This repository contains the backend for the application, built using FastAPI. The server is responsible for handling API requests, processing uploaded PDFs and generating response to the questions based on that PDF.
 
 ## Features
 
@@ -23,3 +23,45 @@ This repository contains the backend for the Skillsphere application, built usin
    ```
 
 2. **Create a virtual environment:**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+3. **Install dependencies:**
+   pip install -r requirements.txt
+
+4. **Set environment variables:**
+   Create a .env file in the root directory and set the required environment variables. (server/.env)
+
+   DATABASE_URL="postgresql://username:password@hostname:port/databasename"
+   AWS_ACCESS_KEY_ID
+   AWS_SECRET_ACCESS_KEY
+   AWS_S3_BUCKET_NAME
+   GEMINI_API_KEY
+   LLAMA_CLOUD_API_KEY
+
+   - To get Gemini api key -> [https://aistudio.google.com/apikey]
+   - To get LLama aou key api key -> [https://cloud.llamaindex.ai/landing]
+   - AWS S3 Doc -> [https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html]
+
+5. **Run the server:**
+   ```bash
+       uvicorn main:app --reload
+   ```
+
+# Client (React)
+
+## Getting Started
+
+Before you begin, ensure you have the following installed:
+
+- Node.js (version 14 or higher)
+- npm or yarn
+
+### Installation
+
+1.  ```bash
+        cd client
+        npm install or yarn install
+        nom run dev
+    ```
