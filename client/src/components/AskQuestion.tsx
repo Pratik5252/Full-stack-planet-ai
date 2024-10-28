@@ -31,6 +31,13 @@ const AskQuestion: React.FC<AskQuestionProps> = ({
       updateAnswer(currentIndex, "Failed to get an answer.");
     }
   };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey && !isWaitingForResponse) {
+      e.preventDefault();
+      handleAsk();
+    }
+  };
   return (
     <div className="absolute bottom-0 w-full h-[10vh] flex justify-center items-start bg-white z-10">
       <div
@@ -44,6 +51,7 @@ const AskQuestion: React.FC<AskQuestionProps> = ({
           type="text"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
+          onKeyUp={handleKeyPress}
           placeholder="Send a Message..."
           className="bg-transparent flex-grow text-sm focus:outline-none"
           disabled={!documentId || isWaitingForResponse}
