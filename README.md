@@ -60,8 +60,8 @@ Before you begin, ensure you have the following installed:
 
 ### Installation
 
-1.  ```bash
-        cd client
-        npm install or yarn install
-        nom run dev
-    ```
+```bash
+    cd client
+    npm install or yarn install
+    npm run dev
+```
