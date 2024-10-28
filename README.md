@@ -36,10 +36,15 @@ This repository contains the backend and fronted for the application, built usin
    Create a .env file in the root directory and set the required environment variables. (server/.env)
 
    DATABASE_URL="postgresql://username:password@hostname:port/databasename"
+
    AWS_ACCESS_KEY_ID
+
    AWS_SECRET_ACCESS_KEY
+
    AWS_S3_BUCKET_NAME
+
    GEMINI_API_KEY
+   
    LLAMA_CLOUD_API_KEY
 
    - To get Gemini api key -> [https://aistudio.google.com/apikey]
