@@ -1,5 +1,6 @@
 import apiClient from "./apiClient";
 
+//Connecting to the Ask Endpoint, to Ask questions
 export const uploadPDF = async (file: File) => {
   const formData = new FormData();
   formData.append("file", file);

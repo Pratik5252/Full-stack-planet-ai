@@ -9,6 +9,7 @@ interface AnswerProps {
   chatHistory: ChatMessage[];
 }
 
+//Basic Loader UI
 const loader = (
   <div className="dot-loader flex justify-center items-center">
     <div className="animate-pulse [animation-delay:-0.3s]"></div>
@@ -16,12 +17,14 @@ const loader = (
     <div className="animate-pulse"></div>
   </div>
 );
+
 const Answer: React.FC<AnswerProps> = ({ chatHistory }) => {
   return (
     <div className="fixed top-[72px] bottom-0 left-0 right-0 pr-2 mb-20">
       <div className="h-full overflow-y-auto mb-20 scrollbar-container">
         <div className="flex justify-center items-center mt-10">
           <div className="w-[90vw] px-4">
+            {/* Mapping over the ChatHistor y to display Questions and Answers */}
             {chatHistory.map((message, index) => (
               <div key={index} className="mb-12">
                 <div className="flex flex-col gap-y-8">

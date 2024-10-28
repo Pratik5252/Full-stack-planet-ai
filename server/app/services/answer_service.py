@@ -16,6 +16,9 @@ nest_asyncio.apply()
 
 load_dotenv()
 
+"""This function geneates response by taking questions and file_path as params
+This take help of Llama Parse to PArse the Document and uses Gemini embedding Model to response to question"""
+
 
 async def generate_answer(temp_pdf_path, question):
     """Generate an answer by querying embedded PDF pages."""
@@ -37,20 +40,14 @@ async def generate_answer(temp_pdf_path, question):
 
         parser = LlamaParse(api_key=llamaparse_api_key, result_type="markdown")
 
-        # file_extractor = {".pdf",parser}
-
-        # documents = SimpleDirectoryReader(input_files=[temp_pdf_path],file_extractor=file_extractor).load_data()
         documents = parser.load_data(temp_pdf_path)
 
         if not isinstance(documents, list) or not documents:
             return "No documents parsed from PDF."
 
         print("Parsed Data:", documents)
-        # Initialize the Gemini model and embeddings
 
-        # Create a VectorStoreIndex, which will automatically embed the documents
         index = VectorStoreIndex.from_documents(documents)
-
         query_engine = index.as_query_engine()
 
         # Query the index with the question

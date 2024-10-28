@@ -1,7 +1,8 @@
-from sqlalchemy import Table, Column,Integer, String,DateTime
+from sqlalchemy import Table, Column, Integer, String, DateTime
 from sqlalchemy.sql import func
 from ..db.database import metadata
 
+# Schema to store metadata of files
 documents = Table(
     "documents",
     metadata,

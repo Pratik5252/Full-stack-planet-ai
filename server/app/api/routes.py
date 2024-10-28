@@ -1,19 +1,20 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from pydantic import BaseModel
-from ..services.pdf_processing import upload_pdf_to_s3, download_text_from_s3
+from ..services.pdf_processing import upload_pdf_to_s3, download_pdf_from_s3
 from ..services.answer_service import generate_answer
 from ..db.database import database
 from ..models.document import documents
 
-
 router = APIRouter()
 
 
+# Model for Questions
 class QuestionRequest(BaseModel):
     question: str
     document_id: int
 
 
+# Endpoint for uploading the file
 @router.post("/upload")
 async def upload_pdf(file: UploadFile = File(...)):
     if file.content_type != "application/pdf":
@@ -28,6 +29,7 @@ async def upload_pdf(file: UploadFile = File(...)):
     }
 
 
+# Endpoint for Asking Question the file
 @router.post("/ask")
 async def ask_question(request: QuestionRequest):
     try:
@@ -37,7 +39,7 @@ async def ask_question(request: QuestionRequest):
         if not document:
             raise HTTPException(status_code=404, detail="Document not found")
 
-        temp_pdf_url = await download_text_from_s3(document.s3_pdf_url)
+        temp_pdf_url = await download_pdf_from_s3(document.s3_pdf_url)
         # print(temp_pdf_url)
         answer = await generate_answer(temp_pdf_url, request.question)
         print(answer)

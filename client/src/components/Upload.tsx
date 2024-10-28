@@ -11,6 +11,7 @@ interface UploadProps {
 const Upload: React.FC<UploadProps> = ({ setDocumentId, setChatHistory }) => {
   const [file, setFile] = useState<File | null>(null);
 
+  //Handle Upload of a File
   const handleFileChange = async (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -22,7 +23,7 @@ const Upload: React.FC<UploadProps> = ({ setDocumentId, setChatHistory }) => {
     try {
       const { document_id } = await uploadPDF(selectedFile);
       setDocumentId(document_id);
-      setChatHistory([]);
+      setChatHistory([]); //clear ChatHistory
       alert("PDF uploaded successfully!");
     } catch (error) {
       alert(`Failed to upload PDF: ${error}`);

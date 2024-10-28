@@ -16,7 +16,7 @@ metadata = MetaData()
 
 Base = declarative_base(metadata=metadata)
 async_session_factor = sessionmaker(
-    bind = engine,
+    bind=engine,
     expire_on_commit=False,
     class_=AsyncSession,
 )

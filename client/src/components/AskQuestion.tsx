@@ -16,14 +16,11 @@ const AskQuestion: React.FC<AskQuestionProps> = ({
 }) => {
   const [question, setQuestion] = useState("");
 
-  const isWaitingForResponse =
-    chatHistory.length > 0 &&
-    chatHistory[chatHistory.length - 1].answer === null;
-
+  // Handles Question Input
   const handleAsk = async () => {
     const currentIndex = chatHistory.length;
     addQuestion(question);
-    setQuestion("");
+    setQuestion(""); // Clear Input Field
     try {
       const { answer } = await askQuestion(question, documentId);
       updateAnswer(currentIndex, answer);
@@ -32,12 +29,17 @@ const AskQuestion: React.FC<AskQuestionProps> = ({
     }
   };
 
+  //Handles Enter KeyPress
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey && !isWaitingForResponse) {
       e.preventDefault();
       handleAsk();
     }
   };
+
+  const isWaitingForResponse =
+    chatHistory.length > 0 &&
+    chatHistory[chatHistory.length - 1].answer === null;
   return (
     <div className="absolute bottom-0 w-full h-[10vh] flex justify-center items-start bg-white z-10">
       <div
