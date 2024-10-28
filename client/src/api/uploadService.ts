@@ -1,6 +1,6 @@
 import apiClient from "./apiClient";
 
-export const uploadPDF = async (file: any) => {
+export const uploadPDF = async (file: File) => {
   const formData = new FormData();
   formData.append("file", file);
 

@@ -1,4 +1,41 @@
-* {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
   margin: 0%;
   padding: 0%;
+}
+
+.scrollbar-container {
+  /* Add padding to create space for scrollbar */
+  padding-right: 8px;
+}
+
+.scrollbar-container::-webkit-scrollbar {
+  width: 8px;
+  /* Slightly reduce width for more subtle appearance */
+}
+
+.scrollbar-container::-webkit-scrollbar-track {
+  background: transparent;
+  /* Make track transparent to blend with container */
+}
+
+.scrollbar-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+  /* Add border to create inset effect */
+  border: 2px solid white;
+}
+
+.scrollbar-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.dot-loader {
+  @apply flex justify-center items-center;
+}
+.dot-loader div {
+  @apply w-2 h-2 mx-1 bg-stone-700 rounded-full;
 }
