@@ -67,7 +67,6 @@ Before you begin, ensure you have the following installed:
 
 ### Installation
 
-**Install dependencies:**
     ```bash
         cd client
         npm install or yarn install
