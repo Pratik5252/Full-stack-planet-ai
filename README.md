@@ -44,7 +44,7 @@ This repository contains the backend and fronted for the application, built usin
    AWS_S3_BUCKET_NAME
 
    GEMINI_API_KEY
-   
+
    LLAMA_CLOUD_API_KEY
 
    - To get Gemini api key -> [https://aistudio.google.com/apikey]
@@ -67,8 +67,9 @@ Before you begin, ensure you have the following installed:
 
 ### Installation
 
-```bash
-    cd client
-    npm install or yarn install
-    npm run dev
-```
+**Install dependencies:**
+    ```bash
+        cd client
+        npm install or yarn install
+        npm run dev
+    ```
