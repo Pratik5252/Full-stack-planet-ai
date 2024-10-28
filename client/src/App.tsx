@@ -26,7 +26,7 @@ const App: React.FC = () => {
     <div className="w-full h-full">
       {/* <h1 className="text-3xl">PDF Question Answering App</h1> */}
       <div>
-        <Upload setDocumentId={setDocumentId} />
+        <Upload setDocumentId={setDocumentId} setChatHistory={setChatHistory} />
         <AskQuestion
           documentId={documentId}
           addQuestion={addQuestion}

@@ -3,9 +3,12 @@ import { uploadPDF } from "../api/uploadService";
 
 interface UploadProps {
   setDocumentId: (id: number) => void; // Specify the type for setDocumentId
+  setChatHistory: React.Dispatch<
+    React.SetStateAction<{ question: string; answer: string | null }[]>
+  >;
 }
 
-const Upload: React.FC<UploadProps> = ({ setDocumentId }) => {
+const Upload: React.FC<UploadProps> = ({ setDocumentId, setChatHistory }) => {
   const [file, setFile] = useState<File | null>(null);
 
   const handleFileChange = async (
@@ -19,6 +22,7 @@ const Upload: React.FC<UploadProps> = ({ setDocumentId }) => {
     try {
       const { document_id } = await uploadPDF(selectedFile);
       setDocumentId(document_id);
+      setChatHistory([]);
       alert("PDF uploaded successfully!");
     } catch (error) {
       alert(`Failed to upload PDF: ${error}`);
