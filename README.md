@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains the backend and fronted for the application, built using FastAPI adn React. The server is responsible for handling API requests, processing uploaded PDFs and generating response to the questions based on that PDF white the frontend is responsible for for user to upload PDF file and ask question related to PDF.
+This repository contains the backend and fronted for the application, built using FastAPI adn React. The server is responsible for handling API requests, processing uploaded PDFs and generating response to the questions based on that PDF while the frontend is responsible for for user to upload PDF file and ask question related to PDF.
 
 # Server (FastAPI)
 
